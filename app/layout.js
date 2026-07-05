@@ -4,10 +4,10 @@ import "./globals.css";
 const instrument = Instrument_Serif({ subsets: ["latin"], variable: "--font-instrument", weight: "400", style: ["normal", "italic"] });
 const dmsans = DM_Sans({ subsets: ["latin"], variable: "--font-dmsans" });
 
-const __jsonld = {"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Laras","jobTitle":"Penyanyi & Penulis Lagu","url":"https://linkinbio-vinyl.vercel.app","inLanguage":"id"}};
+const __jsonld = {"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Laras","jobTitle":"Penyanyi & Penulis Lagu","url":"https://vinyl.pintuweb.com","inLanguage":"id"}};
 
 export const metadata = {
-  metadataBase: new URL("https://linkinbio-vinyl.vercel.app"),
+  metadataBase: new URL("https://vinyl.pintuweb.com"),
   title: "Laras — Dengarkan di Mana Saja",
   description: "Link in bio penyanyi & penulis lagu Laras: album baru, jadwal konser, dan semua platform streaming.",
   applicationName: "Laras",
@@ -15,11 +15,11 @@ export const metadata = {
   authors: [{ name: "Laras" }],
   creator: "Laras",
   publisher: "Laras",
-  alternates: { canonical: "https://linkinbio-vinyl.vercel.app" },
+  alternates: { canonical: "https://vinyl.pintuweb.com" },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://linkinbio-vinyl.vercel.app",
+    url: "https://vinyl.pintuweb.com",
     siteName: "Laras",
     title: "Laras — Dengarkan di Mana Saja",
     description: "Link in bio penyanyi & penulis lagu Laras: album baru, jadwal konser, dan semua platform streaming.",
