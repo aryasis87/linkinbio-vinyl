@@ -1,12 +1,12 @@
-# Laras — Dengarkan di Mana Saja
+# Laras — Penyanyi & Penulis Lagu
 
-Link in bio penyanyi & penulis lagu Laras: album baru, jadwal konser, dan semua platform streaming.
+Tautan Laras, penyanyi dan penulis lagu: album "Senja Kala" sepuluh lagu dengan kredit dan penggalan lirik, tur akustik lima kota November–Desember 2026, dan pengingat tiket.
 
 **Demo live:** https://linkinbio-vinyl.vercel.app
 
 ![Tangkapan layar Laras](public/og.jpg)
 
-> Template link-in-bio dengan persona fiktif.
+> Template link-in-bio dengan persona fiktif. Akun, klien, harga, dan jadwal hanya contoh; tautan utama menuju halaman dalam yang benar-benar ada, dan formulir tidak mengirim data.
 
 ## Konsep
 
@@ -14,7 +14,9 @@ Persona Laras, penyanyi. Piringan hitam berputar dengan label foto, bar now-play
 
 ## Halaman
 
-`/`
+- `/` — piringan hitam berputar dengan label tipografi (tanpa foto), kartu album baru, tracklist tautan Side A/B
+- `/album` — tracklist sisi A/B dengan total durasi dihitung, penggalan lirik, kredit
+- `/tur` — tur lima kota, formulir pengingat tiket per kota atau booking
 
 ## Teknologi
 

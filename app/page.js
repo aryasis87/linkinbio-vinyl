@@ -1,68 +1,62 @@
-import Image from 'next/image';
-import { Play, Ticket, Youtube, Music2, Mic2 } from 'lucide-react';
+import Link from 'next/link';
+import { Bell, FileText, Mic2, Play, Ticket } from 'lucide-react';
+import { ALBUM, LINKS } from '@/lib/laras';
 
-const TRACKS = [
-  { no: 'A1', icon: Play, label: 'Album Baru — "Senja Kala"', dur: 'Spotify · Apple', url: '#' },
-  { no: 'A2', icon: Youtube, label: 'Live Session (Akustik)', dur: 'YouTube', url: 'https://youtube.com' },
-  { no: 'B1', icon: Ticket, label: 'Tiket Konser 2026', dur: '5 kota', url: '#' },
-  { no: 'B2', icon: Music2, label: 'Semua Platform', dur: 'Deezer · Tidal', url: '#' },
-  { no: 'B3', icon: Mic2, label: 'Booking & Kolaborasi', dur: 'manajemen', url: 'mailto:mgmt@laras.id' },
-];
+const IKON = { putar: Play, lirik: FileText, tiket: Ticket, lonceng: Bell, mic: Mic2 };
 
 export default function Home() {
   return (
     <main className="flex min-h-screen items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
-        {/* Piringan */}
-        <div className="rise relative mx-auto h-52 w-52">
-          <div className="record absolute inset-0 rounded-full shadow-[0_20px_60px_-15px_rgba(232,161,60,0.35)]" aria-hidden="true" />
-          {/* Label tengah = foto */}
-          <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-4 border-amberv">
-            <Image src="/images/p1.jpg" alt="Laras" width={80} height={80} priority className="h-full w-full object-cover" />
+        {/* Piringan dengan label tipografi — persona fiktif, tanpa foto */}
+        <div className="rise relative mx-auto h-52 w-52" aria-hidden="true">
+          <div className="record absolute inset-0 rounded-full shadow-[0_20px_60px_-15px_rgba(232,161,60,0.35)]" />
+          <div className="absolute left-1/2 top-1/2 grid h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-4 border-studio bg-amberv text-center text-studio">
+            <span className="font-serif text-lg leading-none">Laras</span>
+            <span className="-mt-3 text-[8px] font-semibold uppercase tracking-[0.2em]">Senja Kala</span>
           </div>
-          <span className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-studio" aria-hidden="true" />
+          <span className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-studio" />
         </div>
 
-        {/* Identitas */}
         <header className="rise mt-7 text-center" style={{ animationDelay: '0.1s' }}>
           <p className="text-[11px] uppercase tracking-[0.35em] text-amberv">Penyanyi · Penulis lagu</p>
           <h1 className="mt-2 font-serif text-5xl">Laras</h1>
-          <p className="mt-2 text-sm text-krem/60">Lagu-lagu tentang pulang, hujan, dan hal-hal yang tak sempat dikatakan.</p>
+          <p className="mt-2 text-sm text-krem/80">Lagu-lagu tentang pulang, hujan, dan hal-hal yang tak sempat dikatakan.</p>
         </header>
 
-        {/* Now playing */}
         <div className="rise mt-6 rounded-2xl border border-krem/15 bg-white/5 p-4" style={{ animationDelay: '0.2s' }}>
-          <div className="flex items-center justify-between text-xs text-krem/60">
-            <span className="flex items-center gap-2"><span className="inline-block h-2 w-2 animate-pulse rounded-full bg-amberv" /> Sedang diputar</span>
-            <span>03:47</span>
+          <div className="flex items-center justify-between text-xs text-krem/75">
+            <span className="flex items-center gap-2"><span className="inline-block h-2 w-2 animate-pulse rounded-full bg-amberv" aria-hidden="true" /> Album baru</span>
+            <span>{ALBUM.lagu.length} lagu</span>
           </div>
-          <p className="mt-1 font-serif text-xl italic">“Senja Kala” — single terbaru</p>
-          <div className="mt-3 h-1 rounded-full bg-krem/15">
+          <p className="mt-1 font-serif text-xl italic">&ldquo;{ALBUM.judul}&rdquo; — rilis {ALBUM.rilis.split(', ')[1]}</p>
+          <div className="mt-3 h-1 rounded-full bg-krem/15" aria-hidden="true">
             <div className="progress h-full rounded-full bg-amberv" />
           </div>
         </div>
 
-        {/* Tracklist links */}
         <nav className="mt-6" aria-label="Tautan">
-          <p className="mb-2 text-[11px] uppercase tracking-[0.3em] text-krem/40">Side A / Side B</p>
-          {TRACKS.map((t, i) => (
-            <a
-              key={t.no}
-              href={t.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rise group flex items-center gap-4 border-b border-krem/12 py-4 transition hover:bg-white/5 hover:px-3"
-              style={{ animationDelay: `${0.3 + i * 0.08}s` }}
-            >
-              <span className="w-7 font-serif text-lg italic text-amberv">{t.no}</span>
-              <t.icon size={17} className="text-krem/40 transition group-hover:text-amberv" />
-              <span className="flex-1 font-medium">{t.label}</span>
-              <span className="text-xs text-krem/40">{t.dur}</span>
-            </a>
-          ))}
+          <p className="mb-2 text-[11px] uppercase tracking-[0.3em] text-krem/70" aria-hidden="true">Side A / Side B</p>
+          {LINKS.map((t, i) => {
+            const Ikon = IKON[t.ikon];
+            return (
+              <Link
+                key={t.no}
+                href={t.href}
+                className="rise group flex items-center gap-4 border-b border-krem/15 py-4 transition hover:bg-white/5 hover:px-3"
+                style={{ animationDelay: `${0.3 + i * 0.08}s` }}
+              >
+                <span className="w-7 font-serif text-lg italic text-amberv">{t.no}</span>
+                <Ikon size={17} className="text-krem/60 transition group-hover:text-amberv" aria-hidden="true" />
+                <span className="flex-1 font-medium">{t.label}</span>
+                <span className="text-xs text-krem/70">{t.dur}</span>
+              </Link>
+            );
+          })}
         </nav>
 
-        <p className="rise mt-8 text-center text-xs text-krem/35" style={{ animationDelay: '0.8s' }}>℗ {new Date().getFullYear()} Laras · Jakarta</p>
+        <p className="rise mt-7 text-center text-sm text-krem/75" style={{ animationDelay: '0.75s' }}>Dengarkan di semua platform musik — cari &ldquo;Laras Senja Kala&rdquo;.</p>
+        <p className="rise mt-3 text-center text-xs text-krem/70" style={{ animationDelay: '0.8s' }}>℗ 2026 Laras · Jakarta · penyanyi fiktif untuk purwarupa desain</p>
       </div>
     </main>
   );

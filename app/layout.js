@@ -8,10 +8,10 @@ const __jsonld = {"@context":"https://schema.org","@type":"ProfilePage","mainEnt
 
 export const metadata = {
   metadataBase: new URL("https://linkinbio-vinyl.vercel.app"),
-  title: "Laras — Dengarkan di Mana Saja",
-  description: "Link in bio penyanyi & penulis lagu Laras: album baru, jadwal konser, dan semua platform streaming.",
+  title: { default: "Laras — Penyanyi & Penulis Lagu", template: "%s — Laras" },
+  description: "Tautan Laras, penyanyi dan penulis lagu: album \"Senja Kala\" sepuluh lagu dengan kredit dan penggalan lirik, tur akustik lima kota November–Desember 2026, dan pengingat tiket.",
   applicationName: "Laras",
-  keywords: ["link in bio", "penyanyi", "penulis lagu", "musik", "streaming"],
+  keywords: ["penyanyi indie", "album senja kala", "tur akustik 2026", "penulis lagu", "link in bio musisi"],
   authors: [{ name: "Laras" }],
   creator: "Laras",
   publisher: "Laras",
@@ -21,14 +21,14 @@ export const metadata = {
     locale: "id_ID",
     url: "https://linkinbio-vinyl.vercel.app",
     siteName: "Laras",
-    title: "Laras — Dengarkan di Mana Saja",
-    description: "Link in bio penyanyi & penulis lagu Laras: album baru, jadwal konser, dan semua platform streaming.",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Laras — Dengarkan di Mana Saja" }],
+    title: "Laras — Penyanyi & Penulis Lagu",
+    description: "Tautan Laras, penyanyi dan penulis lagu: album \"Senja Kala\" sepuluh lagu dengan kredit dan penggalan lirik, tur akustik lima kota November–Desember 2026, dan pengingat tiket.",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Laras — Penyanyi & Penulis Lagu" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Laras — Dengarkan di Mana Saja",
-    description: "Link in bio penyanyi & penulis lagu Laras: album baru, jadwal konser, dan semua platform streaming.",
+    title: "Laras — Penyanyi & Penulis Lagu",
+    description: "Tautan Laras, penyanyi dan penulis lagu: album \"Senja Kala\" sepuluh lagu dengan kredit dan penggalan lirik, tur akustik lima kota November–Desember 2026, dan pengingat tiket.",
     images: ["/og.jpg"],
   },
   robots: {
